@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="assets/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/stylesheets/popup.css">
+  </head>
+  <body>
+    <div class="container">
+      <h3 class="page-header">THSR - Helper</h3>
+
+      <ol class="breadcrumb">
+        <li><a href="/options.html" target="_blank" style="outline: none;">設定</a></li>
+      </ol>
+
+      <form>
+        <div class="form-group">
+          <img src="" alt="">
+          <br><br>
+          <input type="text" class="form-control" id="captcha" placeholder="輸入驗證碼">
+        </div>
+        <button type="button" class="btn btn-success btn-lg btn-block">開始訂票</button>
+      </form>
+
+      <div class="refetch hide">
+        <button type="button" class="btn btn-danger btn-lg btn-block">資料有誤，重新整理</button>
+      </div>
+    </div>
+
+    <script src="assets/javascripts/jquery-2.1.4.min.js"></script>
+    <script src="assets/javascripts/popup.js"></script>
+  </body>
+</html>

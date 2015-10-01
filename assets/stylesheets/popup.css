@@ -1,0 +1,11 @@
+body {
+  width: 300px;
+  margin-bottom: 30px;
+}
+
+ol.breadcrumb li a:focus {
+  outline: none;
+
+  color: #337ab7;
+  text-decoration: none;
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="assets/bootstrap/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="container">
+
+      <h1 class="page-header">THSR - Helper</h1>
+      <div class="alert alert-success" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+        儲存
+      </div>
+      <form>
+
+        <div class="form-group">
+          <label for="selectStartStation">起點站</label>
+          <select name="selectStartStation" id="selectStartStation" class="form-control">
+            <option selected="selected" disabled value="">請選擇...</option>
+            <option value="0">台北</option>
+            <option value="1">板橋</option>
+            <option value="2">桃園</option>
+            <option value="3">新竹</option>
+            <option value="4">台中</option>
+            <option value="5">嘉義</option>
+            <option value="6">台南</option>
+            <option value="7">左營</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="selectDestinationStation">終點站</label>
+          <select name="selectDestinationStation" id="selectDestinationStation" class="form-control">
+            <option selected="selected" disabled value="">請選擇...</option>
+            <option value="0">台北</option>
+            <option value="1">板橋</option>
+            <option value="2">桃園</option>
+            <option value="3">新竹</option>
+            <option value="4">台中</option>
+            <option value="5">嘉義</option>
+            <option value="6">台南</option>
+            <option value="7">左營</option>
+          </select>
+        </div>
+
+        <hr>
+
+        <div class="form-group">
+          <label for="user_id">*身分證字號</label>
+          <input type="text" class="form-control" name="user_id" id="user_id" placeholder="A123456789">
+        </div>
+
+        <div class="form-group">
+          <label for="mobilePhone">*手機</label>
+          <input type="text" class="form-control" name="mobilePhone" id="mobilePhone" placeholder="0987654321">
+        </div>
+
+        <div class="form-group">
+          <label for="email">電子郵件（輸入電子郵件者，可收取訂位及付款資訊確認郵件。）</label>
+          <input type="email" class="form-control" name="email" id="email" placeholder="ex@gmail.com">
+        </div>
+
+        <button type="submit" class="btn btn-primary">儲存</button>
+      </form>
+    </div>
+
+    <script src="assets/javascripts/jquery-2.1.4.min.js"></script>
+    <script src="assets/javascripts/options.js"></script>
+  </body>
+</html>
