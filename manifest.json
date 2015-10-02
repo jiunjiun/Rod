@@ -27,7 +27,6 @@
 
   "permissions": [
     "*://irs.thsrc.com.tw/",
-    "storage",
     "tabs"
   ],
 
