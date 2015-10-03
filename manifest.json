@@ -41,7 +41,7 @@
   "content_scripts" : [
     {
       "matches": [
-        "*://irs.thsrc.com.tw/IMINT/*"
+        "*://irs.thsrc.com.tw/IMINT*"
       ],
       "js": [
         "assets/javascripts/jquery-2.1.4.min.js",

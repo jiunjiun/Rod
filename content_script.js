@@ -20,10 +20,11 @@ $(function() {
   });
 
   function step_1() {
-    $('input[name="homeCaptcha:securityCode"]').val(captcha_code);
     $('select[name="selectStartStation"]').val(info.station.selectStartStation);
     $('select[name="selectDestinationStation"]').val(info.station.selectDestinationStation);
-    $('select[name="toTimeTable"]').val('600A');
+    $('#toTimeInputField').val(info.station.date);
+    $('select[name="toTimeTable"]').val(get_start_time_code(info.station.start_time));
+    $('input[name="homeCaptcha:securityCode"]').val(captcha_code);
 
     localStorage['stup'] = 1;
 
@@ -38,6 +39,17 @@ $(function() {
 
   }
 
+  function get_start_time_code(start_time) {
+    info_start_time = start_time.split(':');
+    if (info_start_time[0] == 12) {
+      start_time_code = info_start_time[0] + info_start_time[1] + 'N'
+    } else if (info_start_time[0] / 12 > 1) {
+      start_time_code = (parseInt(info_start_time[0]) - 12) + info_start_time[1] + 'P'
+    } else {
+      start_time_code = parseInt(info_start_time[0]) + info_start_time[1] + 'A'
+    }
+    return start_time_code;
+  }
 });
 
 

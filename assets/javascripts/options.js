@@ -25,7 +25,7 @@ $(function(){
     var mm = today.getMonth()+1; //January is 0!
     var yyyy = today.getFullYear();
 
-    $('.datepicker').attr('data-value', yyyy + '/' + mm + '/' + dd)
+    $('.datepicker').attr('data-value', yyyy + '/' + mm + '/' + dd);
     $('.datepicker').pickadate({
       onClose: function() {
         $(document.activeElement).blur();
@@ -72,6 +72,11 @@ $(function(){
         ]);
       }
     });
+
+    info_start_time = station_info.start_time.split(':')
+    info_end_time = station_info.end_time.split(':')
+    start_picker.set('select', [parseInt(info_start_time[0]), parseInt(info_start_time[1])]);
+    end_picker.set('select', [parseInt(info_end_time[0]), parseInt(info_end_time[1])]);
   }
   init()
 
