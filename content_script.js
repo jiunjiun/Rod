@@ -19,24 +19,44 @@ $(function() {
     }
   });
 
+  check_status();
+  function check_status() {
+    console.log(localStorage['THSR_status'], localStorage['step'])
+    if (localStorage['THSR_status'] == 'start') {
+      switch(localStorage['step']) {
+      case '2':
+        step_2();
+        break;
+      case '3':
+        step_3();
+        break;
+      default:
+        localStorage['THSR_status'] = 'stop';
+        localStorage['step'] = 1;
+      }
+    }
+  }
+
   function step_1() {
+    console.log(' -- step 1 --')
     $('select[name="selectStartStation"]').val(info.station.selectStartStation);
     $('select[name="selectDestinationStation"]').val(info.station.selectDestinationStation);
     $('#toTimeInputField').val(info.station.date);
     $('select[name="toTimeTable"]').val(get_start_time_code(info.station.start_time));
     $('input[name="homeCaptcha:securityCode"]').val(captcha_code);
 
-    localStorage['stup'] = 1;
+    localStorage['THSR_status'] = 'start';
+    localStorage['step'] = 2;
 
     $('#SubmitButton').trigger('click');
   }
 
   function step_2() {
-
+    console.log(' -- step 2 --')
   }
 
   function step_3() {
-
+    console.log(' -- step 3 --')
   }
 
   function get_start_time_code(start_time) {

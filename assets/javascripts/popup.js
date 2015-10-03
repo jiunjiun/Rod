@@ -15,4 +15,10 @@ $(function() {
 
     return false;
   });
+
+  $("form input").keypress(function(event) {
+    if (event.which == 13) {
+      $('form button').trigger('click');
+    }
+  });
 });
