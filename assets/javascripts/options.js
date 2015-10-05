@@ -25,7 +25,12 @@ $(function(){
     var mm = today.getMonth()+1; //January is 0!
     var yyyy = today.getFullYear();
 
-    $('.datepicker').attr('data-value', yyyy + '/' + mm + '/' + dd);
+
+    if (station_info.date) {
+      $('.datepicker').attr('data-value', station_info.date);
+    } else {
+      $('.datepicker').attr('data-value', yyyy + '/' + mm + '/' + dd);
+    }
     $('.datepicker').pickadate({
       onClose: function() {
         $(document.activeElement).blur();
@@ -73,10 +78,15 @@ $(function(){
       }
     });
 
-    info_start_time = station_info.start_time.split(':')
-    info_end_time = station_info.end_time.split(':')
-    start_picker.set('select', [parseInt(info_start_time[0]), parseInt(info_start_time[1])]);
-    end_picker.set('select', [parseInt(info_end_time[0]), parseInt(info_end_time[1])]);
+    if (station_info.start_time) {
+      info_start_time = station_info.start_time.split(':');
+      start_picker.set('select', [parseInt(info_start_time[0]), parseInt(info_start_time[1])]);
+    }
+
+    if (station_info.end_time) {
+      info_end_time = station_info.end_time.split(':')
+      end_picker.set('select', [parseInt(info_end_time[0]), parseInt(info_end_time[1])]);
+    }
   }
   init()
 
@@ -95,8 +105,9 @@ $(function(){
                     'date': date, 'start_time': start_time, 'end_time': end_time};
     user_info    = {'user_id': user_id, 'mobilePhone': mobilePhone, 'email': email};
 
-    localStorage['station_info'] = JSON.stringify(station_info)
-    localStorage['user_info']    = JSON.stringify(user_info)
+
+    localStorage['station_info'] = JSON.stringify(station_info);
+    localStorage['user_info']    = JSON.stringify(user_info);
 
     $('.alert').show();
 

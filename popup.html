@@ -12,17 +12,24 @@
         <li><a href="/options.html" target="_blank" style="outline: none;">設定</a></li>
       </ol>
 
-      <form>
-        <div class="form-group">
-          <img src="" alt="">
-          <br><br>
-          <input type="text" class="form-control" id="captcha" placeholder="輸入驗證碼">
-        </div>
-        <button type="button" class="btn btn-success btn-lg btn-block">開始訂票</button>
-      </form>
+      <div id="Step01" class="hide">
+        <form>
+          <div class="form-group">
+            <img src="" alt="">
+            <br><br>
+            <input type="text" class="form-control" id="captcha" placeholder="輸入驗證碼">
+          </div>
+          <button type="button" class="btn btn-success btn-lg btn-block">開始訂票</button>
+        </form>
 
-      <div class="refetch hide">
-        <button type="button" class="btn btn-danger btn-lg btn-block">資料有誤，重新整理</button>
+        <div class="refetch hide">
+          <button type="button" class="btn btn-danger btn-lg btn-block">資料有誤，重新整理</button>
+        </div>
+      </div>
+
+      <div class="buying hide">
+        <h3 class="text-center">訂票中...</h3>
+        <button type="button" class="btn btn-danger btn-lg btn-block">取消訂票</button>
       </div>
     </div>
 
