@@ -4,7 +4,7 @@ var page_status;
 var url_search;
 
 $(function() {
-  chrome.extension.onMessage.addListener(function(message,sender,sendResponse){
+  chrome.extension.onMessage.addListener(function(message,sender,sendResponse) {
     switch(message.method) {
     case 'start':
       localStorage['THSR_captcha_code'] = message.captcha_code;
@@ -23,11 +23,11 @@ $(function() {
 
   init();
   function init() {
-    captcha_img = $('#BookingS1Form_homeCaptcha_passCode').attr('src')
+    captcha_img = $('#BookingS1Form_homeCaptcha_passCode').attr('src');
     chrome.runtime.sendMessage({method:'pageAction_show'});
     chrome.runtime.sendMessage({method:'setData', data: {captcha_img: captcha_img}});
 
-    chrome.runtime.sendMessage({method: 'getInfo'},function(response){
+    chrome.runtime.sendMessage({method: 'getInfo'},function(response) {
       if (response) {
         info = response;
         _page_status();
@@ -89,6 +89,7 @@ $(function() {
     if ($('.feedbackPanelERROR').length) {
       switch(page_status) {
       case 'Step01':
+
         break;
       case 'Step02':
       case 'Step03':
@@ -96,8 +97,8 @@ $(function() {
         window.history.back();
         break;
       default:
-        // alert('頁面錯誤!!');
         stop_runner();
+        alert('頁面錯誤!!');
       }
     }
   }
@@ -133,6 +134,8 @@ $(function() {
       if ( first_train_time >= station_start_time && first_train_time <= station_end_time) {
         $('input[name="SubmitButton"]').trigger('click');
         return false;
+      } else {
+        window.location.href = "https://irs.thsrc.com.tw/IMINT/" + localStorage['THSR_params'];
       }
     });
   }
