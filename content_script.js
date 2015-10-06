@@ -1,15 +1,16 @@
 var captcha_code;
 var info = {};
 var page_status;
+var url_search;
 
 $(function() {
   chrome.extension.onMessage.addListener(function(message,sender,sendResponse){
     switch(message.method) {
     case 'start':
-      captcha_code = message.captcha_code;
+      localStorage['THSR_captcha_code'] = message.captcha_code;
+      localStorage['THSR_training']     = 'training';
 
-      localStorage['THSR_status'] = 'start';
-      step_1();
+      runner();
       break;
     case 'page_status':
       sendResponse(page_status);
@@ -19,7 +20,6 @@ $(function() {
       break;
     }
   });
-
 
   init();
   function init() {
@@ -51,6 +51,8 @@ $(function() {
   }
 
   function runner() {
+    if (localStorage['THSR_training'] != 'finish') training_page();
+
     check_error();
     if (localStorage['THSR_status'] == 'start') {
       switch(page_status) {
@@ -69,9 +71,25 @@ $(function() {
     }
   }
 
+  function training_page() {
+    switch(localStorage['THSR_training']) {
+    case 'training':
+      localStorage['THSR_training'] = 'trained';
+      $('#SubmitButton').trigger('click');
+      break;
+    case 'trained':
+      localStorage['THSR_training'] = 'finish';
+      localStorage['THSR_params'] = location.search;
+      localStorage['THSR_status'] = 'start';
+      break;
+    }
+  }
+
   function check_error() {
     if ($('.feedbackPanelERROR').length) {
       switch(page_status) {
+      case 'Step01':
+        break;
       case 'Step02':
       case 'Step03':
       case 'Step04':
@@ -86,23 +104,22 @@ $(function() {
 
   function step_1() {
     if (page_status != 'Step01') return false;
-    console.log(' -- step 1 --');
+    // console.log(' -- step 1 --');
 
     $('select[name="selectStartStation"]').val(info.station.selectStartStation);
     $('select[name="selectDestinationStation"]').val(info.station.selectDestinationStation);
     $('#toTimeInputField').val(info.station.date);
     $('select[name="toTimeTable"]').val(get_start_time_code(info.station.start_time));
-    $('input[name="homeCaptcha:securityCode"]').val(captcha_code);
+    $('input[name="homeCaptcha:securityCode"]').val(localStorage['THSR_captcha_code']);
 
     localStorage['THSR_status'] = 'start';
-    localStorage['step'] = 2;
 
     $('#SubmitButton').trigger('click');
   }
 
   function step_2() {
     if (page_status != 'Step02') return false;
-    console.log(' -- step 2 --');
+    // console.log(' -- step 2 --');
 
     $('.table_simple:eq(0) tr').each(function(i) {
       if (i == 0) return true;
@@ -122,7 +139,7 @@ $(function() {
 
   function step_3() {
     if (page_status != 'Step03') return false;
-    console.log(' -- step 3 --');
+    // console.log(' -- step 3 --');
 
     $('#idNumber').val(info.user.user_id);
     $('#mobileInputRadio').attr("checked", true);
@@ -135,14 +152,13 @@ $(function() {
 
   function step_4() {
     if (page_status != 'Step04') return false;
-    console.log(' -- step 4 --');
+    // console.log(' -- step 4 --');
 
     alert('訂票完成!!');
   }
 
   function stop_runner() {
     localStorage['THSR_status'] = 'stop';
-    localStorage['step'] = 1;
   }
 
   function get_start_time_code(start_time) {

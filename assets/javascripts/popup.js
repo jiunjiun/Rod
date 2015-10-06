@@ -15,11 +15,8 @@ $(function() {
         if (response) {
           $('img').attr('src', 'https://irs.thsrc.com.tw' + response.captcha_img);
           $('#Step01').removeClass('hide');
-
-          chrome.extension.getBackgroundPage().console.log('response', response);
         }
       });
-      chrome.extension.getBackgroundPage().console.log(page_status);
       break;
     case 'Step02':
     case 'Step03':
