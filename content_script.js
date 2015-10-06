@@ -24,9 +24,7 @@ $(function() {
   init();
   function init() {
     captcha_img = $('#BookingS1Form_homeCaptcha_passCode').attr('src');
-    chrome.runtime.sendMessage({method:'pageAction_show'});
     chrome.runtime.sendMessage({method:'setData', data: {captcha_img: captcha_img}});
-
     chrome.runtime.sendMessage({method: 'getInfo'},function(response) {
       if (response) {
         info = response;
@@ -54,21 +52,26 @@ $(function() {
     if (localStorage['THSR_training'] != 'finish') training_page();
 
     check_error();
-    if (localStorage['THSR_status'] == 'start') {
-      switch(page_status) {
-      case 'Step01':
-        step_1();
-      case 'Step02':
-        step_2();
-      case 'Step03':
-        step_3();
-      case 'Step04':
-        step_4();
-        break;
-      default:
-        stop_runner();
+    chrome.runtime.sendMessage({method: 'getTHSR_Info'},function(response){
+      THSR_status = response.status;
+      if (THSR_status == undefined) THSR_status = 'stop';
+
+      if (THSR_status == 'start') {
+        switch(page_status) {
+        case 'Step01':
+          step_1();
+        case 'Step02':
+          step_2();
+        case 'Step03':
+          step_3();
+        case 'Step04':
+          step_4();
+          break;
+        default:
+          stop_runner();
+        }
       }
-    }
+    });
   }
 
   function training_page() {
@@ -80,7 +83,7 @@ $(function() {
     case 'trained':
       localStorage['THSR_training'] = 'finish';
       localStorage['THSR_params'] = location.search;
-      localStorage['THSR_status'] = 'start';
+      chrome.runtime.sendMessage({method:'setTHSR_Info', data: {status: 'start'}});
       break;
     }
   }
@@ -112,8 +115,6 @@ $(function() {
     $('#toTimeInputField').val(info.station.date);
     $('select[name="toTimeTable"]').val(get_start_time_code(info.station.start_time));
     $('input[name="homeCaptcha:securityCode"]').val(localStorage['THSR_captcha_code']);
-
-    localStorage['THSR_status'] = 'start';
 
     $('#SubmitButton').trigger('click');
   }
@@ -161,7 +162,7 @@ $(function() {
   }
 
   function stop_runner() {
-    localStorage['THSR_status'] = 'stop';
+    chrome.runtime.sendMessage({method:'setTHSR_Info', data: {status: 'stop'}});
   }
 
   function get_start_time_code(start_time) {

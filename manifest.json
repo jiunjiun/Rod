@@ -14,7 +14,7 @@
      "128": "assets/images/icon_128.png"
   },
 
-  "page_action": {
+  "browser_action": {
     "default_icon": {
         "16": "assets/images/icon_16.png",
         "32": "assets/images/icon_32.png",
@@ -32,8 +32,8 @@
 
   "background": {
     "scripts": [
-      "background.js",
-      "assets/javascripts/jquery-2.1.4.min.js"
+      "assets/javascripts/jquery-2.1.4.min.js",
+      "background.js"
     ],
     "persistent": false
   },

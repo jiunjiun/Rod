@@ -19,11 +19,18 @@ chrome.runtime.onMessage.addListener(function(message,sender,sendResponse){
     info = {station: station_info, user: user_info};
     sendResponse(info);
     break;
-  case 'pageAction_show':
-    chrome.pageAction.show(tabId);
+  case 'setTHSR_Info':
+    old_info = {};
+    if (localStorage['THSR_Info']) old_info = JSON.parse(localStorage['THSR_Info']);
+
+    new_info = message.data;
+    info     = $.extend(old_info, new_info);
+
+    localStorage['THSR_Info'] = JSON.stringify(info);
     break;
-  case 'pageAction_hide':
-    chrome.pageAction.hide(tabId);
+  case 'getTHSR_Info':
+    info = JSON.parse(localStorage['THSR_Info']);
+    sendResponse(info);
     break;
   }
 });
