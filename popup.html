@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" type="text/css" href="assets/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/lib/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/lib/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/stylesheets/ticket.css">
     <link rel="stylesheet" type="text/css" href="assets/stylesheets/popup.css">
   </head>
   <body>
@@ -13,6 +15,28 @@
         <li><a href="/options.html" target="_blank" style="outline: none;">設定</a></li>
       </ol>
 
+      <div class="ticket">
+        <div class="inner">
+          <h1>台灣高鐵票
+            <a href="/options.html" target="_blank" class="edit" data-toggle="tooltip" data-placement="top" title="修改票券">
+              <i class="fa fa-pencil"></i>
+            </a>
+          </h1>
+          <div class="info clearfix">
+            <div class="wp">起點<h2></h2></div>
+            <div class="wp">終點<h2></h2></div>
+          </div>
+          <div class="date_range">
+            <div class="date"></div>
+            <div class="time clearfix">
+              <div class="wp"></div>
+              <div class="wp">-</div>
+              <div class="wp"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div id="Step01" class="hide">
         <form>
           <div class="form-group">
@@ -20,21 +44,31 @@
             <br><br>
             <input type="text" class="form-control" id="captcha" placeholder="輸入驗證碼">
           </div>
-          <button type="button" class="btn btn-success btn-lg btn-block">開始訂票</button>
+          <button type="button" class="btn btn-success btn-lg btn-block">
+            <i class="fa fa-play"></i>
+            開始訂票
+          </button>
         </form>
 
         <div class="refetch hide">
-          <button type="button" class="btn btn-danger btn-lg btn-block">資料有誤，重新整理</button>
+          <button type="button" class="btn btn-danger btn-lg btn-block">
+            <i class="fa fa-exclamation-triangle"></i>
+            資料有誤，重新整理
+          </button>
         </div>
       </div>
 
       <div class="buying hide">
         <h3 class="text-center">訂票中...</h3>
-        <button type="button" class="btn btn-danger btn-lg btn-block">取消訂票</button>
+        <button type="button" class="btn btn-danger btn-lg btn-block">
+          <i class="fa fa-stop"></i>
+          取消訂票
+        </button>
       </div>
     </div>
 
     <script src="assets/javascripts/jquery-2.1.4.min.js"></script>
+    <script src="assets/lib/bootstrap/bootstrap.min.js"></script>
     <script src="assets/javascripts/popup.js"></script>
   </body>
 </html>

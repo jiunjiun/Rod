@@ -90,6 +90,14 @@ $(function(){
   }
   init()
 
+  $('a#exchange').click(function() {
+    selectStartStation       = $('#selectStartStation').val();
+    selectDestinationStation = $('#selectDestinationStation').val();
+
+    $('#selectStartStation').val(selectDestinationStation);
+    $('#selectDestinationStation').val(selectStartStation);
+  });
+
   $('form').submit(function() {
     selectStartStation       = $('#selectStartStation').val();
     selectDestinationStation = $('#selectDestinationStation').val();

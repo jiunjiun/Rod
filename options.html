@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" type="text/css" href="assets/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/pickadate/default.css">
-    <link rel="stylesheet" type="text/css" href="assets/pickadate/default.date.css">
-    <link rel="stylesheet" type="text/css" href="assets/pickadate/default.time.css">
+    <link rel="stylesheet" type="text/css" href="assets/lib/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/lib/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/lib/pickadate/default.css">
+    <link rel="stylesheet" type="text/css" href="assets/lib/pickadate/default.date.css">
+    <link rel="stylesheet" type="text/css" href="assets/lib/pickadate/default.time.css">
+    <style type="text/css" media="screen">
+      #refresh {margin-top: 19px;}
+    </style>
   </head>
   <body>
     <div class="container">
-
       <h1 class="page-header">THSR - Helper</h1>
       <div class="alert alert-success" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -17,35 +20,45 @@
         儲存
       </div>
       <form>
-        <div class="form-group">
-          <label for="selectStartStation">起點站</label>
-          <select name="selectStartStation" id="selectStartStation" class="form-control">
-            <option selected="selected" disabled value="">請選擇...</option>
-            <option value="0">台北</option>
-            <option value="1">板橋</option>
-            <option value="2">桃園</option>
-            <option value="3">新竹</option>
-            <option value="4">台中</option>
-            <option value="5">嘉義</option>
-            <option value="6">台南</option>
-            <option value="7">左營</option>
-          </select>
+        <div class="row">
+          <div class="col-md-5">
+            <div class="form-group">
+              <label for="selectStartStation">起點站</label>
+              <select name="selectStartStation" id="selectStartStation" class="form-control">
+                <option selected="selected" disabled value="">請選擇...</option>
+                <option value="0">台北</option>
+                <option value="1">板橋</option>
+                <option value="2">桃園</option>
+                <option value="3">新竹</option>
+                <option value="4">台中</option>
+                <option value="5">嘉義</option>
+                <option value="6">台南</option>
+                <option value="7">左營</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-2 text-center">
+            <a id="exchange" class="btn btn-info btn-lg" role="button">
+              <i class="fa fa-exchange"></i>
+            </a>
+          </div>
+          <div class="col-md-5">
+            <div class="form-group">
+              <label for="selectDestinationStation">終點站</label>
+              <select name="selectDestinationStation" id="selectDestinationStation" class="form-control">
+                <option selected="selected" disabled value="">請選擇...</option>
+                <option value="0">台北</option>
+                <option value="1">板橋</option>
+                <option value="2">桃園</option>
+                <option value="3">新竹</option>
+                <option value="4">台中</option>
+                <option value="5">嘉義</option>
+                <option value="6">台南</option>
+                <option value="7">左營</option>
+              </select>
+            </div>
+          </div>
         </div>
-        <div class="form-group">
-          <label for="selectDestinationStation">終點站</label>
-          <select name="selectDestinationStation" id="selectDestinationStation" class="form-control">
-            <option selected="selected" disabled value="">請選擇...</option>
-            <option value="0">台北</option>
-            <option value="1">板橋</option>
-            <option value="2">桃園</option>
-            <option value="3">新竹</option>
-            <option value="4">台中</option>
-            <option value="5">嘉義</option>
-            <option value="6">台南</option>
-            <option value="7">左營</option>
-          </select>
-        </div>
-
         <div class="form-group">
           <label for="date">出發日期</label>
           <input type="text" class="form-control datepicker" name="date" id="date" placeholder="" data-value="">
@@ -80,15 +93,15 @@
           <input type="email" class="form-control" name="email" id="email" placeholder="ex@gmail.com">
         </div>
 
-        <button type="submit" class="btn btn-primary">儲存</button>
+        <button type="submit" class="btn btn-success">儲存</button>
       </form>
     </div>
 
     <script src="assets/javascripts/jquery-2.1.4.min.js"></script>
-    <script src="assets/pickadate/picker.js"></script>
-    <script src="assets/pickadate/picker.date.js"></script>
-    <script src="assets/pickadate/picker.time.js"></script>
-    <script src="assets/pickadate/locales/zh_TW.js"></script>
+    <script src="assets/lib/pickadate/picker.js"></script>
+    <script src="assets/lib/pickadate/picker.date.js"></script>
+    <script src="assets/lib/pickadate/picker.time.js"></script>
+    <script src="assets/lib/pickadate/locales/zh_TW.js"></script>
     <script src="assets/javascripts/options.js"></script>
   </body>
 </html>

@@ -8,6 +8,22 @@ $(function() {
     });
   });
 
+  function ticket() {
+    $('[data-toggle="tooltip"]').tooltip();
+    chrome.runtime.sendMessage({method: 'getInfo'},function(response){
+      station = {0: '台北', 1: '板橋', 2: '桃園', 3: '新竹', 4: '台中', 5: '嘉義', 6: '台南', 7: '左營'}
+      info = response;
+
+      $('.ticket .info .wp:eq(0) h2').html(station[parseInt(info.station.selectStartStation)]);
+      $('.ticket .info .wp:eq(1) h2').html(station[parseInt(info.station.selectDestinationStation)]);
+
+      $('.ticket .date_range .date').html(info.station.date);
+      $('.ticket .date_range .time .wp:eq(0)').html(info.station.start_time);
+      $('.ticket .date_range .time .wp:eq(3)').html(info.station.end_time);
+    });
+  }
+  ticket();
+
   function show_view() {
     var THSR_status;
     chrome.runtime.sendMessage({method: 'getTHSR_Info'},function(response){
