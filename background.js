@@ -29,7 +29,8 @@ chrome.runtime.onMessage.addListener(function(message,sender,sendResponse){
     localStorage['THSR_Info'] = JSON.stringify(info);
     break;
   case 'getTHSR_Info':
-    info = JSON.parse(localStorage['THSR_Info']);
+    info = {}
+    if (localStorage['THSR_Info']) info = JSON.parse(localStorage['THSR_Info']);
     sendResponse(info);
     break;
   }
