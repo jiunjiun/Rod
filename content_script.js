@@ -49,9 +49,9 @@ $(function() {
   }
 
   function runner() {
+    check_error();
     if (localStorage['THSR_training'] != 'finish') training_page();
 
-    check_error();
     chrome.runtime.sendMessage({method: 'getTHSR_Info'},function(response){
       THSR_status = response.status;
       if (THSR_status == undefined) THSR_status = 'stop';
@@ -92,7 +92,14 @@ $(function() {
     if ($('.feedbackPanelERROR').length) {
       switch(page_status) {
       case 'Step01':
-
+        validation = true;
+        $('span.feedbackPanelERROR').each(function() {
+          if ($(this).html().indexOf('去程查無合適車次資料') >= 0) validation = false;
+        });
+        if (localStorage['THSR_training'] == 'finish' && validation) {
+          stop_runner();
+          alert('頁面錯誤!!');
+        }
         break;
       case 'Step02':
       case 'Step03':
@@ -101,7 +108,7 @@ $(function() {
         break;
       default:
         stop_runner();
-        alert('頁面錯誤!!');
+        alert('頁面錯誤!! 請重新確認。');
       }
     }
   }
