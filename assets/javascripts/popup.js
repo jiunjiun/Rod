@@ -19,7 +19,7 @@ $(function() {
 
       $('.ticket .date_range .date').html(info.station.date);
       $('.ticket .date_range .time .wp:eq(0)').html(info.station.start_time);
-      $('.ticket .date_range .time .wp:eq(3)').html(info.station.end_time);
+      $('.ticket .date_range .time .wp:eq(2)').html(info.station.end_time);
     });
   }
   ticket();
