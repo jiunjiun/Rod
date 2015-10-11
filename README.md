@@ -8,7 +8,7 @@
 
 選擇「設定」
 
-![step1](https://raw.githubusercontent.com/jiunjiun/THSR-helper/master/assets/images/docs/2015-10-11%2017.49.57.png)
+![step1](https://raw.githubusercontent.com/jiunjiun/THSR-helper/master/assets/images/docs/2015-10-11_17.49.57.png)
 
 ### Step.2
 
