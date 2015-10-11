@@ -1,6 +1,6 @@
-# THSR-helper
+# Rod
 
-訂不票嗎? 我幫你
+訂不到票嗎? 我幫你
 
 ## 使用方法
 
@@ -22,6 +22,10 @@
 
 ![step3](https://raw.githubusercontent.com/jiunjiun/THSR-helper/master/assets/images/docs/2015-10-11_18.03.58.png)
 
+
+### Thanks
+
+* 科科安
 
 
 ## Copyright / License

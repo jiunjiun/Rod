@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
 
-  "name": "THSR - Helper",
-  "description": "幫你訂票",
+  "name": "Rod",
+  "description": "訂不到票嗎? 我幫你",
   "version": "1.0",
 
   "options_page": "options.html",
