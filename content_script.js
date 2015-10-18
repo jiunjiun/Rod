@@ -35,7 +35,7 @@ $(function() {
   }
 
   function _page_status() {
-    step_class = $('#steps span strong').parent().attr('class');
+    step_class = $('#steps strong').parent().attr('class');
     switch(step_class) {
     case 'Step01':
     case 'Step02':
@@ -44,7 +44,11 @@ $(function() {
       page_status = step_class;
       break;
     default:
-      page_status = '';
+      if ($('p.payment_title span').html() == "您已完成訂位！") {
+        page_status = 'Step04';
+      } else {
+        page_status = '';
+      }
     }
   }
 
@@ -103,7 +107,6 @@ $(function() {
         break;
       case 'Step02':
       case 'Step03':
-      case 'Step04':
         window.history.back();
         break;
       default:
@@ -165,7 +168,8 @@ $(function() {
     if (page_status != 'Step04') return false;
     // console.log(' -- step 4 --');
 
-    alert('訂票完成!!');
+    stop_runner();
+    alert('您已完成訂位！');
   }
 
   function stop_runner() {

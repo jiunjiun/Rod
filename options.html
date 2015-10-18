@@ -12,12 +12,16 @@
   </head>
   <body>
     <div class="container">
-      <h1 class="page-header">THSR - Helper</h1>
+      <h1 class="page-header">
+        設定
+      </h1>
       <div class="alert alert-success" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">×</span>
         </button>
-        儲存
+        儲存，
+        <a href="https://irs.thsrc.com.tw/IMINT" target="_blank">快來訂票</a>
+        吧
       </div>
       <form>
         <div class="row">
@@ -97,7 +101,25 @@
       </form>
     </div>
 
+    <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">小提醒</h4>
+          </div>
+          <div class="modal-body">
+            <h4>預先設定好，讓你訂票更快速哦!!</h4>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">關閉</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script src="assets/javascripts/jquery-2.1.4.min.js"></script>
+    <script src="assets/lib/bootstrap/bootstrap.min.js"></script>
     <script src="assets/lib/pickadate/picker.js"></script>
     <script src="assets/lib/pickadate/picker.date.js"></script>
     <script src="assets/lib/pickadate/picker.time.js"></script>

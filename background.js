@@ -1,5 +1,13 @@
 // background.js
 var data;
+init = function() {
+  if (localStorage['hasOption'] === undefined) {
+    chrome.tabs.create({ url: "options.html" });
+    localStorage['hasOption'] = 'show_alert';
+  }
+}
+init();
+
 chrome.runtime.onMessage.addListener(function(message,sender,sendResponse){
   var tabId = sender.tab ? sender.tab.id : message.tab
 

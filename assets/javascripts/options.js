@@ -1,4 +1,8 @@
 $(function(){
+  if (localStorage['hasOption'] == 'show_alert') {
+    $('.modal').modal('show');
+  }
+
   // http://stackoverflow.com/questions/3885817/how-to-check-that-a-number-is-float-or-integer
   function isInt(n){
     return Number(n) === n && n % 1 === 0;
@@ -116,6 +120,7 @@ $(function(){
 
     localStorage['station_info'] = JSON.stringify(station_info);
     localStorage['user_info']    = JSON.stringify(user_info);
+    localStorage['hasOption']    = 'save';
 
     $('.alert').show();
 
