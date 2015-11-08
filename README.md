@@ -2,6 +2,8 @@
 
 訂不到高鐵票嗎? 我幫你
 
+* youtube: [Rod](https://youtu.be/jHToadPdry8)
+
 ## 使用方法
 
 ### Step.1 
