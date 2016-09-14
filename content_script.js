@@ -124,6 +124,7 @@ $(function() {
     $('select[name="selectDestinationStation"]').val(info.station.selectDestinationStation);
     $('#toTimeInputField').val(info.station.date);
     $('select[name="toTimeTable"]').val(get_start_time_code(info.station.start_time));
+    $('select[name="ticketPanel:rows:0:ticketAmount"]').val(info.station.count)
     $('input[name="homeCaptcha:securityCode"]').val(localStorage['THSR_captcha_code']);
 
     $('#SubmitButton').trigger('click');

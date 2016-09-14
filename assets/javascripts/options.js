@@ -15,12 +15,13 @@ $(function(){
     if (localStorage['station_info']) station_info = JSON.parse(localStorage['station_info'])
     if (localStorage['user_info']) user_info = JSON.parse(localStorage['user_info'])
 
-    $('#selectStartStation').val(station_info['selectStartStation']);
-    $('#selectDestinationStation').val(station_info['selectDestinationStation']);
+    $('#selectStartStation').val(station_info.selectStartStation);
+    $('#selectDestinationStation').val(station_info.selectDestinationStation);
 
-    $('#user_id').val(user_info['user_id']);
-    $('#mobilePhone').val(user_info['mobilePhone']);
-    $('#email').val(user_info['email']);
+    $('#user_id').val(user_info.user_id);
+    $('#mobilePhone').val(user_info.mobilePhone);
+    $('#email').val(user_info.email);
+    $('#count').val(station_info.count);
 
     $('.alert').hide();
 
@@ -112,9 +113,10 @@ $(function(){
     user_id                  = $('#user_id').val();
     mobilePhone              = $('#mobilePhone').val();
     email                    = $('#email').val();
+    count                    = $('#count').val();
 
     station_info = {'selectStartStation': selectStartStation, 'selectDestinationStation': selectDestinationStation,
-                    'date': date, 'start_time': start_time, 'end_time': end_time};
+                    'date': date, 'start_time': start_time, 'end_time': end_time, 'count': count};
     user_info    = {'user_id': user_id, 'mobilePhone': mobilePhone, 'email': email};
 
 

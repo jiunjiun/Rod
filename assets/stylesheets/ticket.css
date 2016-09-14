@@ -77,3 +77,7 @@
   font-size: 15px;
   text-align: center;
 }
+
+.ticket .count {
+  text-align: center;
+}
