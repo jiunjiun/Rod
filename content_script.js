@@ -98,7 +98,7 @@ $(function() {
       case 'Step01':
         validation = true;
         $('span.feedbackPanelERROR').each(function() {
-          if ($(this).html().indexOf('去程查無合適車次資料') >= 0) validation = false;
+          if ($(this).html().indexOf('去程查無可售車次或選購的車票已售完') >= 0) validation = false;
         });
         if (localStorage['THSR_training'] == 'finish' && validation) {
           stop_runner();
