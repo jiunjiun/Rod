@@ -11,7 +11,7 @@ $(function() {
   function ticket() {
     $('[data-toggle="tooltip"]').tooltip();
     chrome.runtime.sendMessage({method: 'getInfo'},function(response){
-      station = {0: '南港', 1: '台北', 2: '板橋', 3: '桃園', 4: '新竹', 5: '苗栗', 6: '台中', 7: '彰化', 8: '雲林', 9: '嘉義', 10: '台南', 11: '左營'}
+      station = {1: '南港', 2: '台北', 3: '板橋', 4: '桃園', 5: '新竹', 6: '苗栗', 7: '台中', 8: '彰化', 9: '雲林', 10: '嘉義', 11: '台南', 12: '左營'}
       info = response;
 
       $('.ticket .info .wp:eq(0) h2').html(station[parseInt(info.station.selectStartStation)]);
